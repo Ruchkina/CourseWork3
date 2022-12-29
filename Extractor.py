@@ -19,7 +19,6 @@ def write_to_csv(d_new, df, path):
     dqqq = pd.DataFrame(d_new)
     dqqq["label"] = df["label"]
     dqqq.to_csv(path)
-    
 
     
 def write_to_file(*df, path):
