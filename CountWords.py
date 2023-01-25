@@ -26,11 +26,14 @@ def morth_analyse(elements, diction):
             count = count + 1
     return count
 
-def caps_lock_analyse(elements, diction = None):
+def caps_lock_analyse(elements, diction):
     count = 0
+    morph = pych.MorphAnalyzer()
     for element in elements:
         if element.isupper():
-            count = count + 1
+            p = morph.parse(element.lower())[0].normal_form
+            if p in diction:
+                count = count + 1
     return count
 
 """
