@@ -27,6 +27,8 @@ def write_to_file(*df, path):
         datafr_result = pd.concat([datafr_result, df_c], axis=1)
     datafr_result.to_csv(path)
     
+
+    
     
         #a = []
     #for l in lst:
