@@ -4,7 +4,7 @@ import pandas as pd
 
 
 def extract_df(path, rows_count):
-    return pd.read_csv(path,  nrows = rows_count)
+    return pd.read_csv(path,  nrows = rows_count, encoding="utf8") #, encoding='cp1251')
 #encoding="windows-1251",
 
 def extract_col(path, col):

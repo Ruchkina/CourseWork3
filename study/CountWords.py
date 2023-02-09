@@ -8,7 +8,7 @@ def count_word(df, diction, name, func):
     list_new = []
     
     for index in range(len(df)):
-        text = str(df)
+        text = str(df['text'].iloc[index])
         text = text.strip()
         # text = text.lower()
         text = text.translate(text.maketrans("", "", string.punctuation))

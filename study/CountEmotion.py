@@ -8,7 +8,7 @@ import pandas as pd
 def count_emotion(data):
     tokenizer = RegexTokenizer()
     model = FastTextSocialNetworkModel(tokenizer=tokenizer)
-    messages = data#['text']
+    messages = data['text']
     results = model.predict(messages, k=2)
     df_emotion = pd.DataFrame(results)
     if "skip" in df_emotion.columns :
