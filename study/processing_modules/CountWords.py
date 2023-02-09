@@ -4,7 +4,6 @@ import pandas as pd
 import pymorphy2 as pych
 
 def count_word(df, diction, name, func):
-    #count = 0
     list_new = []
     
     for index in range(len(df)):
@@ -36,12 +35,3 @@ def caps_lock_analyse(elements, diction):
                 count = count + 1
     return count
 
-"""
-
-
-# any(x in string for x in search)
-# Open the file in read mode
-#text = open("sample.txt", "r")
-
-'''
-"""

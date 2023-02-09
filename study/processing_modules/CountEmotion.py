@@ -18,16 +18,13 @@ def count_emotion(data):
     if "negative" not in df_emotion.columns :
         df_emotion.insert(1, "negative", 0)
     df_emotion = df_emotion.fillna(0)
+    
     # df["label"] = data["label"]
     # res = [[key for key in results[0].keys()], *[list(idx.values()) for idx in results ]]
     #q = list(map(list, results.items()))
+    
     return df_emotion
 
-
-# df = df[((df.negative < 0.4) & (df.label == 0)) | (df.label == 1)]
-# df.loc[(df.label == 0) & (df.negative > 0.02), ('negative')] = df.negative - 0.02
-
-# df.to_csv('news_26_12.csv')
 
 
 
