@@ -11,6 +11,11 @@ def count_emotion(data):
     messages = data['text']
     results = model.predict(messages, k=2)
     df_emotion = pd.DataFrame(results)
+    # df_emotion.drop("speech", axis=1, inplace=True)
+    if "speech" in df_emotion.columns :
+        df_emotion.drop("speech", axis=1, inplace=True)
+    if "positive" in df_emotion.columns :
+        df_emotion.drop("positive", axis=1, inplace=True)
     if "skip" in df_emotion.columns :
         df_emotion.drop("skip", axis=1, inplace=True)
     if "neutral" not in df_emotion.columns :

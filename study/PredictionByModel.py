@@ -3,9 +3,11 @@
 import pickle
 
 def prediction(df):
-    load_model = pickle.load(open('model.pkl', 'rb'))
+    load_model = pickle.load(open('model3.pkl', 'rb'))
     y_pred = load_model.predict(df)
     return(y_pred)
+
+
 
 
 

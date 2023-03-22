@@ -3,6 +3,15 @@ import string
 import pandas as pd
 import pymorphy2 as pych
 
+def count_punctuation(df, name):
+    mark = []
+    for index in range(len(df)):
+        text = str(df['text'].iloc[index])
+        mark.append(text.count('!'))
+    d_new = pd.DataFrame(mark, columns=[name])
+    print(d_new)
+    return d_new
+
 def count_word(df, diction, name, func):
     list_new = []
     

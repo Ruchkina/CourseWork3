@@ -18,16 +18,18 @@ ddd = rslt_df[rslt_df['adj']==1]
 sss = ddd[ddd['label']=='ИСТИНА']
 # data = data.fillna(0)
 """
-
-# tr['adj'].hist(by=data['label'], edgecolor = 'black', density=True, sharey=True, range=[1, 20], grid=True)
-
-
+d=data[data['exclamation_mark']>0]
+# d=d.assign(adj_j=d['adj']/d.num.count())
+# d['adj1']=d['adj']/d.num.count()
+# tr['adj'].hist(data['label'], edgecolor = 'black', density=True, sharey=True, range=[1, 20], grid=True)
 # axarr = rslt_df['adj'].hist(by=data['label'], edgecolor = 'black', density=True, sharey=True, range=[1, 20], grid=True)
-axarr = data['adj'].hist(by=data['label'], density=True, edgecolor = 'black', sharey=True, grid=True)
-plt.suptitle("Эмоциональная лексика")
+axarr = d['exclamation_mark'].hist(by=data['label'],edgecolor = 'black',
+                         sharey=True, grid=True,bins=10
+                         ,stacked=True)
+# plt.suptitle("Эмоциональная лексика")
 
 for ax in axarr.flatten():
-    ax.set_xlabel("кол-во повторений маркера", fontsize=14)
+    ax.set_xlabel("кол-во повторений маркера", fontsize=10)
     ax.set_ylabel("кол-во новостей")
 
 
