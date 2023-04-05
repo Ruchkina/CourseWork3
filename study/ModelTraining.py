@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 
 import pandas as pd
-import matplotlib as plt
-import seaborn as sns
+# import matplotlib as plt
+# import seaborn as sns
 from sklearn.model_selection import train_test_split, ShuffleSplit, cross_val_score, learning_curve
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, f1_score, precision_score, recall_score
 import pickle
 
-MODEL_FILE_PATH = '../model3.pkl'
+MODEL_FILE_PATH = '../prediction/model4.pkl'
+FILE_SOURCE_PATH = "../processing/quantitative_processing.csv"
 
 def get_classification_report(y_train_true, y_train_pred, y_test_true, y_test_pred):
     print('TRAIN\n\n' + classification_report(y_train_true, y_train_pred))
@@ -16,8 +17,7 @@ def get_classification_report(y_train_true, y_train_pred, y_test_true, y_test_pr
     print('CONFUSION MATRIX\n')
     print(pd.crosstab(y_test_true, y_test_pred))
 
-# df = pd.read_csv("C:/univer/course_work/rtr6_copy.csv")
-df = pd.read_csv("C:/univer/course_work/processing/q1.csv")
+df = pd.read_csv(FILE_SOURCE_PATH)
 TARGET_NAME = 'label'
 BASE_FEATURE_NAMES = df.columns.drop([TARGET_NAME]).tolist()
 FEATURE_NAMES_SELECTED = BASE_FEATURE_NAMES

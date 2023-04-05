@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
-import Extractor as ex
-import CountEmotion as ce
-import CountWords as cw
+import processing_models.Extractor as ex
+import processing_models.CountEmotion as ce
+import processing_models.CountWords as cw
 
-df = ex.extract_df('translate/for_study_info.csv', 3072)
+n = 3072
+
+df = ex.extract_df('translate/for_study_info.csv', n)
 df_label = ex.extract_col('translate/for_study_info.csv', 'label')
 mark = ex.extract_diction('diction/mark.txt')
 adj = ex.extract_diction('diction/adj.txt')
@@ -11,10 +13,10 @@ caps_lock = ex.extract_diction('diction/caps_lock.txt')
 exclamation_mark = ex.extract_diction('diction/punctuation.txt')
 
 df_emotion = ce.count_emotion(df)
-df_mark = cw.count_word(df, mark, 'mark', cw.morth_analyse)
-df_adj = cw.count_word(df, adj, 'adj', cw.morth_analyse)
-df_caps_lock = cw.count_word(df, caps_lock, 'caps_lock', cw.caps_lock_analyse)
-df_exclamation_mark = cw.count_punctuation(df, 'exclamation_mark')
+df_mark = cw.count_word(df, mark, 'processing_models/mark', cw.morth_analyse)
+df_adj = cw.count_word(df, adj, 'processing_models/adj', cw.morth_analyse)
+df_caps_lock = cw.count_word(df, caps_lock, 'processing_models/caps_lock', cw.caps_lock_analyse)
+df_exclamation_mark = cw.count_punctuation(df, 'processing_models/exclamation_mark')
 
 path_file = 'quantitative_processing.csv'
 
